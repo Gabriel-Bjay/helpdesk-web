@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Brand */
+  --brand:        #4f46e5;   /* indigo-600 — primary actions/links */
+  --brand-dark:   #4338ca;   /* hover/pressed */
+  --brand-soft:   #eef2ff;   /* tints, active sidebar item bg */
+
+  /* Surfaces & text */
+  --bg:           #f6f7f9;   /* app background (no more stark white) */
+  --surface:      #ffffff;   /* cards, navbar, sidebar */
+  --text:         #1f2937;   /* main text */
+  --text-muted:   #6b7280;   /* secondary text */
+  --border:       #e5e7eb;   /* hairlines, card borders */
+
+  /* Status colors */
+  --status-open:        #2563eb;  /* blue   */
+  --status-progress:    #d97706;  /* amber  */
+  --status-resolved:    #16a34a;  /* green  */
+  --status-closed:      #6b7280;  /* gray   */
+
+  /* Priority colors */
+  --prio-low:     #16a34a;   /* green  */
+  --prio-medium:  #2563eb;   /* blue   */
+  --prio-high:    #d97706;   /* amber  */
+  --prio-urgent:  #dc2626;   /* red    */
+
+  /* Shape & depth */
+  --radius:       12px;
+  --radius-sm:    8px;
+  --shadow-sm:    0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md:    0 4px 12px rgba(16, 24, 40, 0.08);
+
+  /* Spacing scale */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
+  --space-4: 16px; --space-5: 24px; --space-6: 32px;
+}
+
+/* ---- Base ---- */
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+
+/* ---- Page container (centers content, adds breathing room) ---- */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+}
+
+.page-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-5);
+}
+
+/* ---- Card surface ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+}
+
+/* ---- Badges (status & priority pills) ---- */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #fff;
+  white-space: nowrap;
+}
+.badge--open      { background: var(--status-open); }
+.badge--progress  { background: var(--status-progress); }
+.badge--resolved  { background: var(--status-resolved); }
+.badge--closed    { background: var(--status-closed); }
+
+.badge--low     { background: var(--prio-low); }
+.badge--medium  { background: var(--prio-medium); }
+.badge--high    { background: var(--prio-high); }
+.badge--urgent  { background: var(--prio-urgent); }

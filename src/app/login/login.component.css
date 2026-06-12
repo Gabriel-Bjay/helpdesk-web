@@ -1,0 +1,6 @@
+ .login-wrapper {
+      max-width: 360px; margin: 80px auto; padding: 24px;
+      border: 1px solid #ddd; border-radius: 8px;
+    }
+    h2 { margin-bottom: 16px; text-align: center; }
+    dx-button { margin-top: 16px; }

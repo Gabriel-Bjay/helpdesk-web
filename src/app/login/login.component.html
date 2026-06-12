@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+      <h2>Help Desk Login</h2>
+
+      <dx-form [(formData)]="formData" [showColonAfterLabel]="true">
+        <dxi-item
+          dataField="email"
+          editorType="dxTextBox"
+          [editorOptions]="{ mode: 'email', placeholder: 'you@example.com' }"
+          [validationRules]="[{ type: 'required', message: 'Email is required' }]">
+        </dxi-item>
+
+        <dxi-item
+          dataField="password"
+          editorType="dxTextBox"
+          [editorOptions]="{ mode: 'password', placeholder: 'Your password' }"
+          [validationRules]="[{ type: 'required', message: 'Password is required' }]">
+        </dxi-item>
+      </dx-form>
+
+      <dx-button
+        text="Log in"
+        type="default"
+        width="100%"
+        [disabled]="loading"
+        (onClick)="onLogin()">
+      </dx-button>
+    </div>

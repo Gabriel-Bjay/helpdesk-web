@@ -1,0 +1,17 @@
+.kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px; margin-bottom: 24px;
+    }
+    .kpi { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: relative; }
+    .kpi-dot { width: 28px; height: 4px; border-radius: 999px; margin-bottom: 6px; }
+    .kpi-num { font-size: 30px; font-weight: 700; line-height: 1; }
+    .kpi-label { color: var(--text-muted); font-size: 0.85rem; }
+
+    .charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    .chart-card { padding: 12px; }
+    dx-pie-chart, dx-chart { width: 100%; height: 340px; }

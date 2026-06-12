@@ -1,0 +1,55 @@
+ <div style="padding:24px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+        <h2>Admin</h2>
+        <dx-button text="← Back to tickets" (onClick)="goBack()"></dx-button>
+      </div>
+
+      <h3>Categories</h3>
+      <p style="color:#888; font-size:13px;">
+        You cannot delete a category that already has tickets attached to it.
+      </p>
+      <dx-data-grid [dataSource]="categoriesStore" [showBorders]="true" keyExpr="id"
+        [columnAutoWidth]="true">
+        <dxo-editing
+          mode="row"
+          [allowAdding]="true"
+          [allowUpdating]="true"
+          [allowDeleting]="true"
+          [useIcons]="true">
+        </dxo-editing>
+        <dxi-column dataField="name"
+          [validationRules]="[{ type:'required', message:'Name is required' }]">
+        </dxi-column>
+        <dxi-column dataField="description"></dxi-column>
+        <dxi-column dataField="is_active" dataType="boolean" caption="Active" [width]="90">
+        </dxi-column>
+      </dx-data-grid>
+
+      <h3 style="margin-top:36px;">Users & Agents</h3>
+      <p style="color:#888; font-size:13px;">
+        To deactivate someone, edit them and uncheck "Active". Users are never deleted.
+      </p>
+      <dx-data-grid [dataSource]="usersStore" [showBorders]="true" keyExpr="id"
+        [columnAutoWidth]="true">
+        <dxo-editing
+          mode="popup"
+          [allowAdding]="true"
+          [allowUpdating]="true"
+          [useIcons]="true">
+        </dxo-editing>
+        <dxi-column dataField="full_name" caption="Full name"
+          [validationRules]="[{ type:'required' }]">
+        </dxi-column>
+        <dxi-column dataField="email"
+          [validationRules]="[{ type:'required' }, { type:'email' }]">
+        </dxi-column>
+        <dxi-column dataField="role" [validationRules]="[{ type:'required' }]">
+          <dxo-lookup [dataSource]="roles"></dxo-lookup>
+        </dxi-column>
+        <dxi-column dataField="is_active" dataType="boolean" caption="Active" [width]="90">
+        </dxi-column>
+        <dxi-column dataField="password" [visible]="false"
+          [formItem]="{ visible: true, editorOptions: { mode: 'password', placeholder: 'Min 8 characters (leave blank to keep current)' } }">
+        </dxi-column>
+      </dx-data-grid>
+    </div>
